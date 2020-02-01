@@ -25,6 +25,10 @@ class Song
     self.new(song_name, artist, genre)
   end
   
+  def save
+    @@all << self 
+  end
+  
   def self.create_from_filename(file_name)
     self.new_from_filename(file_name).save
   end 
@@ -45,10 +49,6 @@ class Song
   
   def self.destroy_all
     @@all.clear
-  end
-  
-  def save
-    @@all << self 
   end
   
   def self.create(song)
